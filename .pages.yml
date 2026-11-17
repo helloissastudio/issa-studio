@@ -1,0 +1,36 @@
+media:
+  input: issa-studio-web/media
+  output: /media
+  rename: safe
+  categories: [image]
+
+content:
+  - name: web
+    label: Mi web
+    type: file
+    path: issa-studio-web/data/site.json
+    format: json
+    fields:
+      - name: trabajos
+        label: Trabajos
+        description: Se muestran en este orden. Arrastralos para cambiar el orden.
+        type: object
+        list: true
+        fields:
+          - name: imagen
+            label: Foto o GIF
+            type: image
+            required: true
+          - name: nombre
+            label: Nombre (opcional)
+            type: string
+      - name: about
+        label: Texto de About us
+        description: Dejá una línea en blanco entre párrafos.
+        type: text
+      - name: mail
+        label: Mail de contacto
+        type: string
+      - name: instagram
+        label: Link de Instagram
+        type: string
