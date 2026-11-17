@@ -1,17 +1,43 @@
 {
+  "trabajos": [
+    {
+      "imagen": "/media/issa-studio-book.jpg",
+      "nombre": "Issa studio book"
+    },
+    {
+      "imagen": "/media/issa-reborn.jpg",
+      "nombre": "Issa Reborn"
+    },
+    {
+      "imagen": "/media/issa-studio-brand-marks.gif",
+      "nombre": "Issa studio brand marks"
+    },
+    {
+      "imagen": "/media/peanuts-bread.png",
+      "nombre": "Peanuts bread"
+    },
+    {
+      "imagen": "/media/ma-studio.jpg",
+      "nombre": "Ma studio"
+    },
+    {
+      "imagen": "/media/ma-studio-medieval-gear.jpg",
+      "nombre": "Ma studio medieval gear"
+    },
+    {
+      "imagen": "/media/cuatro-quince-1.jpg",
+      "nombre": "Cuatro quince"
+    },
+    {
+      "imagen": "/media/cuatro-quince-2.jpg",
+      "nombre": "Cuatro quince"
+    },
+    {
+      "imagen": "/media/cuatro-quince-3.jpg",
+      "nombre": "Cuatro quince"
+    }
+  ],
   "about": "Issa Studio is an independent graphic design studio based in Montevideo, Uruguay.\n\nWe work with brands across a range of industries to develop strong, distinctive visual identities.\n\nEvery project starts with a clear understanding of the brand and its audience.\n\nFrom there, we build identities that are rigorous, consistent, and made to last, from the first concept to the final system.",
   "mail": "hello.issastudio@gmail.com",
-  "instagram": "https://www.instagram.com/issa____studio",
-  "trabajos": [
-    { "imagen": "/media/issa-studio-book.jpg", "nombre": "Issa studio book" },
-    { "imagen": "/media/issa-reborn.jpg", "nombre": "Issa Reborn" },
-    { "imagen": "/media/issa-studio-brand-marks.gif", "nombre": "Issa studio brand marks" },
-    { "imagen": "/media/peanuts-bread.png", "nombre": "Peanuts bread" },
-    { "imagen": "/media/ma-studio.jpg", "nombre": "Ma studio" },
-    { "imagen": "/media/ma-studio-medieval-gear.jpg", "nombre": "Ma studio medieval gear" },
-    { "imagen": "/media/cuatro-quince-1.jpg", "nombre": "Cuatro quince" },
-    { "imagen": "/media/cuatro-quince-2.jpg", "nombre": "Cuatro quince" },
-    { "imagen": "/media/cuatro-quince-3.jpg", "nombre": "Cuatro quince" },
-    { "imagen": "/media/ojosfinos.jpg", "nombre": "Ojosfinos" }
-  ]
+  "instagram": "https://www.instagram.com/issa____studio"
 }
