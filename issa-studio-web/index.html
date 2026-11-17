@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Issa Studio</title>
+<meta name="description" content="Issa Studio is an independent graphic design studio based in Montevideo, Uruguay.">
+<meta property="og:title" content="Issa Studio">
+<meta property="og:description" content="Independent graphic design studio based in Montevideo, Uruguay.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pill:rgba(240,240,240,.65);
+  --panel:rgba(240,240,240,.72);
+  --pad:14px;
+  --r:14px;
+  --fs:13px;
+  --spring:cubic-bezier(.34,1.45,.55,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff;color:#000;font-family:Inter,"Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;border:0;background:none;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
+
+/* ---------- header ---------- */
+.hd{position:sticky;top:0;z-index:20;background:#fff;padding:12px var(--pad) 12px;padding-top:max(12px,env(safe-area-inset-top))}
+.bar{display:flex;align-items:center;background:var(--pill);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-radius:var(--r);padding:11px 16px}
+.bar img{display:block;height:13px;width:auto}
+.nav{position:relative;display:flex;gap:6px;margin-top:6px}
+.pill{flex:1;display:flex;align-items:center;justify-content:space-between;background:var(--pill);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-radius:var(--r);padding:10px 16px;font-size:var(--fs);letter-spacing:.05em;transition:transform .15s ease,background-color .2s ease}
+.pill:active{transform:scale(.985)}
+.pill i{font-style:normal;font-weight:300;font-size:16px;line-height:1;color:#969696;display:inline-block;transition:transform .45s var(--spring),color .3s ease}
+.pill[aria-expanded="true"] i{transform:rotate(45deg);color:#000}
+
+.panel{position:absolute;left:0;right:0;top:calc(100% + 14px);background:var(--panel);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-radius:18px;padding:22px;box-shadow:0 0 0 1px rgba(0,0,0,.05);
+  opacity:0;transform:translateY(-8px) scale(.97);transform-origin:50% 0;pointer-events:none;visibility:hidden;
+  transition:opacity .35s ease,transform .45s var(--spring),visibility 0s linear .45s}
+.panel.open{opacity:1;transform:none;pointer-events:auto;visibility:visible;transition:opacity .3s ease,transform .5s var(--spring),visibility 0s}
+.about p{margin:0;max-width:620px;font-size:15px;line-height:1.6;letter-spacing:.01em}
+.about p+p{margin-top:1.1em}
+.lbl{font-size:12px;letter-spacing:.06em;color:#666;margin-bottom:6px}
+.btn{display:inline-block;background:rgba(255,255,255,.75);border-radius:12px;padding:10px 16px;font-size:14px;letter-spacing:.02em;transition:background-color .2s ease}
+.btn:hover{background:#fff}
+.contact .btn+.blk{margin-top:14px}
+.blk{display:block}
+
+/* ---------- grid ---------- */
+main{padding:0 var(--pad) var(--pad)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.work{position:relative;margin:0;aspect-ratio:3/4;overflow:hidden;background:#f2f2f2;opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+.work.in{opacity:1;transform:none}
+.work img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.tag{position:absolute;left:12px;top:12px;background:rgba(244,244,244,.92);border-radius:6px;padding:6px 11px;font-size:12px;letter-spacing:.03em}
+footer{padding:28px var(--pad) 24px;font-size:12px;letter-spacing:.04em;color:#666}
+
+@media (max-width:1199.98px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:809.98px){
+  :root{--pad:8px;--r:12px;--fs:11px}
+  .hd{padding:8px var(--pad);padding-top:max(8px,env(safe-area-inset-top))}
+  .bar{padding:9px 12px}
+  .bar img{height:11px}
+  .pill{padding:8px 12px;letter-spacing:.04em}
+  .pill i{font-size:13px}
+  .panel{top:calc(100% + 12px);padding:18px;border-radius:14px}
+  .about p{font-size:14px}
+  main{padding:0 14px 14px}
+  .grid{grid-template-columns:1fr}
+  footer{padding:24px 14px}
+}
+@media (prefers-reduced-motion:reduce){
+  .panel,.panel.open,.pill i,.work{transition:none}
+  .work{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<header class="hd">
+  <a class="bar" href="./" aria-label="Issa Studio"><img src="assets/logo.png" alt="Issa Studio"></a>
+  <nav class="nav">
+    <button class="pill" type="button" id="b-about" aria-expanded="false" aria-controls="p-about"><span>About us</span><i aria-hidden="true">+</i></button>
+    <button class="pill" type="button" id="b-contact" aria-expanded="false" aria-controls="p-contact"><span>Contact</span><i aria-hidden="true">+</i></button>
+    <div class="panel about" id="p-about" role="region" aria-label="About us"></div>
+    <div class="panel contact" id="p-contact" role="region" aria-label="Contact">
+      <div class="lbl">Mail:</div>
+      <a class="btn" id="mail" href="mailto:hello.issastudio@gmail.com">hello.issastudio@gmail.com</a>
+      <span class="blk" style="height:14px"></span>
+      <a class="btn" id="ig" href="https://www.instagram.com/issa____studio" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </nav>
+</header>
+
+<main><div class="grid" id="grid"></div></main>
+<footer>© <span id="yr">2026</span> Issa Studio</footer>
+
+<script>
+/* ---------- sonido de click (sin delay) ---------- */
+var ctx=null,buf=null,out=null;
+function prepare(){
+  try{
+    var AC=window.AudioContext||window.webkitAudioContext; if(!AC) return;
+    if(!ctx){
+      ctx=new AC({latencyHint:"interactive"});
+      var len=Math.floor(ctx.sampleRate*0.016); buf=ctx.createBuffer(1,len,ctx.sampleRate);
+      var d=buf.getChannelData(0),prev=0;
+      for(var i=0;i<len;i++){var n=(Math.random()*2-1)*Math.pow(1-i/len,8);d[i]=(n-prev)*0.9;prev=n}
+      out=ctx.createGain(); out.gain.value=0.55; out.connect(ctx.destination);
+    }
+    if(ctx.state!=="running"){ctx.resume();var s=ctx.createBufferSource();s.buffer=ctx.createBuffer(1,1,ctx.sampleRate);s.connect(ctx.destination);s.start(0)}
+  }catch(e){}
+}
+function click(){prepare();if(!ctx||!buf)return;var s=ctx.createBufferSource();s.buffer=buf;s.connect(out);s.start(0)}
+["pointerdown","touchstart","keydown"].forEach(function(ev){window.addEventListener(ev,prepare,{capture:true,passive:true})});
+document.addEventListener("pointerdown",function(e){if(e.target.closest(".pill,.btn"))click()},true);
+
+/* ---------- menús desplegables ---------- */
+var menus={about:["b-about","p-about"],contact:["b-contact","p-contact"]};
+function setOpen(key){
+  Object.keys(menus).forEach(function(k){
+    var b=document.getElementById(menus[k][0]),p=document.getElementById(menus[k][1]),on=(k===key);
+    b.setAttribute("aria-expanded",String(on)); p.classList.toggle("open",on);
+  });
+}
+Object.keys(menus).forEach(function(k){
+  document.getElementById(menus[k][0]).addEventListener("click",function(){
+    var isOpen=this.getAttribute("aria-expanded")==="true"; setOpen(isOpen?null:k);
+  });
+});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")setOpen(null)});
+
+/* ---------- contenido editable (data/site.json) ---------- */
+function src(p){return String(p||"").replace(/^\//,"")}
+function esc(t){var d=document.createElement("div");d.textContent=t;return d.innerHTML}
+fetch("data/site.json",{cache:"no-cache"}).then(function(r){return r.json()}).then(function(S){
+  var ab=document.getElementById("p-about");
+  ab.innerHTML=String(S.about||"").split(/\n\s*\n/).filter(function(x){return x.trim()}).map(function(x){return "<p>"+esc(x.trim())+"</p>"}).join("");
+  if(S.mail){var m=document.getElementById("mail");m.href="mailto:"+S.mail;m.textContent=S.mail}
+  if(S.instagram){document.getElementById("ig").href=S.instagram}
+  var g=document.getElementById("grid");
+  (S.trabajos||[]).forEach(function(t,i){
+    if(!t||!t.imagen)return;
+    var f=document.createElement("figure");f.className="work";
+    var img=document.createElement("img");img.src=src(t.imagen);img.alt=t.nombre||"Issa Studio";img.decoding="async";if(i>2)img.loading="lazy";
+    f.appendChild(img);
+    if(t.nombre){var s=document.createElement("span");s.className="tag";s.textContent=t.nombre;f.appendChild(s)}
+    g.appendChild(f);
+  });
+  var cards=document.querySelectorAll(".work");
+  if("IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.08});
+    cards.forEach(function(c){io.observe(c)});
+  }else cards.forEach(function(c){c.classList.add("in")});
+}).catch(function(){});
+document.getElementById("yr").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
